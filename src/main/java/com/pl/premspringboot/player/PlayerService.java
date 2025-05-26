@@ -55,7 +55,7 @@ public class PlayerService {
     }
 
     public Player updatePlayer(Player updatedPlayer){
-        Optional<Player> existingPlayer = playerRepository.findByName(updatedPlayer.getPlayer());
+        Optional<Player> existingPlayer = playerRepository.findByPlayer(updatedPlayer.getPlayer());
 
         if(existingPlayer.isPresent()){
             Player playerToUpdate = existingPlayer.get();
@@ -72,6 +72,6 @@ public class PlayerService {
     }
     @Transactional
     public void removePlayer(String playerName){
-        playerRepository.deleteByName(playerName);
+        playerRepository.deleteByPlayer(playerName);
     }
 }

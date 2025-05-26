@@ -11,57 +11,113 @@ public class Player {
     @Id // this specifies that the primary key of the entity is the string player
     //its also a unique identifier for all player records in the db
     @Column(name = "Player", unique = true)
-    private String Player;
-    private String Nation;
-    private String Pos;
-    private Integer Age;
-    private Integer MP;
-    private Integer Starts;
-    private Double Min;
-    private Double Gls;
-    private Double Ast;
-    private Double PK;
-    private Double CrdY;
-    private Double CrdR;
+    private String player;
+    private String nation;
+    private String pos;
+    private Integer age;
+    private Integer mp;
+    private Integer starts;
+    private Double min;
+    private Double gls;
+    private Double ast;
+    private Double pk;
+    private Double crdY;
+    private Double crdR;
     private Double xG;
     private Double xAG;
-    private String Team;
+    private String team;
 
     public Player() {
     }
 
-    public Player(String player, String nation, String pos, Integer age, Integer MP, Integer starts, Double min, Double gls, Double ast, Double PK, Double crdY, Double crdR, Double xG, Double xAG, String team) {
-        Player = player;
-        Nation = nation;
-        Pos = pos;
-        Age = age;
-        this.MP = MP;
-        Starts = starts;
-        Min = min;
-        Gls = gls;
-        Ast = ast;
-        this.PK = PK;
-        CrdY = crdY;
-        CrdR = crdR;
+    public Player(String player, String nation, String pos, Integer age, Integer mp, Integer starts, Double min, Double gls, Double ast, Double pk, Double crdY, Double crdR, Double xG, String team, Double xAG) {
+        this.player = player;
+        this.nation = nation;
+        this.pos = pos;
+        this.age = age;
+        this.mp = mp;
+        this.starts = starts;
+        this.min = min;
+        this.gls = gls;
+        this.ast = ast;
+        this.pk = pk;
+        this.crdY = crdY;
+        this.crdR = crdR;
         this.xG = xG;
+        this.team = team;
         this.xAG = xAG;
-        Team = team;
     }
 
-    public String getTeam() {
-        return Team;
+    public String getPlayer() {
+        return player;
     }
 
-    public void setTeam(String team) {
-        Team = team;
+    public void setPlayer(String player) {
+        this.player = player;
     }
 
-    public Double getxAG() {
-        return xAG;
+    public String getNation() {
+        return nation;
     }
 
-    public void setxAG(Double xAG) {
-        this.xAG = xAG;
+    public void setNation(String nation) {
+        this.nation = nation;
+    }
+
+    public String getPos() {
+        return pos;
+    }
+
+    public void setPos(String pos) {
+        this.pos = pos;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Integer getMp() {
+        return mp;
+    }
+
+    public void setMp(Integer mp) {
+        this.mp = mp;
+    }
+
+    public Integer getStarts() {
+        return starts;
+    }
+
+    public void setStarts(Integer starts) {
+        this.starts = starts;
+    }
+
+    public Double getMin() {
+        return min;
+    }
+
+    public void setMin(Double min) {
+        this.min = min;
+    }
+
+    public Double getAst() {
+        return ast;
+    }
+
+    public void setAst(Double ast) {
+        this.ast = ast;
+    }
+
+    public Double getCrdY() {
+        return crdY;
+    }
+
+    public void setCrdY(Double crdY) {
+        this.crdY = crdY;
     }
 
     public Double getxG() {
@@ -72,99 +128,43 @@ public class Player {
         this.xG = xG;
     }
 
-    public Double getCrdR() {
-        return CrdR;
+    public Double getxAG() {
+        return xAG;
     }
 
-    public void setCrdR(Double crdR) {
-        CrdR = crdR;
-    }
-
-    public Double getCrdY() {
-        return CrdY;
-    }
-
-    public void setCrdY(Double crdY) {
-        CrdY = crdY;
-    }
-
-    public Double getPK() {
-        return PK;
-    }
-
-    public void setPK(Double PK) {
-        this.PK = PK;
-    }
-
-    public Double getAst() {
-        return Ast;
-    }
-
-    public void setAst(Double ast) {
-        Ast = ast;
+    public void setxAG(Double xAG) {
+        this.xAG = xAG;
     }
 
     public Double getGls() {
-        return Gls;
+        return gls;
     }
 
     public void setGls(Double gls) {
-        Gls = gls;
+        this.gls = gls;
     }
 
-    public Double getMin() {
-        return Min;
+    public Double getPk() {
+        return pk;
     }
 
-    public void setMin(Double min) {
-        Min = min;
+    public void setPk(Double pk) {
+        this.pk = pk;
     }
 
-    public Integer getStarts() {
-        return Starts;
+    public Double getCrdR() {
+        return crdR;
     }
 
-    public void setStarts(Integer starts) {
-        Starts = starts;
+    public void setCrdR(Double crdR) {
+        this.crdR = crdR;
     }
 
-    public Integer getMP() {
-        return MP;
+    public String getTeam() {
+        return team;
     }
 
-    public void setMP(Integer MP) {
-        this.MP = MP;
-    }
-
-    public Integer getAge() {
-        return Age;
-    }
-
-    public void setAge(Integer age) {
-        Age = age;
-    }
-
-    public String getPos() {
-        return Pos;
-    }
-
-    public void setPos(String pos) {
-        Pos = pos;
-    }
-
-    public String getNation() {
-        return Nation;
-    }
-
-    public void setNation(String nation) {
-        Nation = nation;
-    }
-
-    public String getPlayer() {
-        return Player;
-    }
-
-    public void setPlayer(String player) {
-        Player = player;
+    public void setTeam(String team) {
+        this.team = team;
     }
 }
