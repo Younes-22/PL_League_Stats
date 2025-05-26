@@ -6,31 +6,59 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="prem_stats")
+@Table(name="player_statistic") // Matches your actual table name
 public class Player {
-    @Id // this specifies that the primary key of the entity is the string player
-    //its also a unique identifier for all player records in the db
-    @Column(name = "Player", unique = true)
-    private String player;
-    private String nation;
-    private String pos;
-    private Integer age;
-    private Integer mp;
-    private Integer starts;
-    private Double min;
-    private Double gls;
-    private Double ast;
-    private Double pk;
-    private Double crdY;
-    private Double crdR;
-    private Double xG;
-    private Double xAG;
-    private String team;
+    @Id
+    @Column(name = "player_name")
+    private String player; // SQL type: character varying
 
+    @Column(name = "nation")
+    private String nation; // SQL type: character varying
+
+    @Column(name = "position")
+    private String pos; // SQL type: character varying
+
+    @Column(name = "age")
+    private Integer age; // SQL type: integer
+
+    @Column(name = "matches_played")
+    private Integer mp; // SQL type: integer
+
+    @Column(name = "starts")
+    private Integer starts; // SQL type: integer
+
+    @Column(name = "minutes_played")
+    private Double min; // SQL type: double precision
+
+    @Column(name = "goals")
+    private Double gls; // SQL type: double precision
+
+    @Column(name = "assists")
+    private Double ast; // SQL type: double precision
+
+    @Column(name = "penalties_scored")
+    private Double pk; // SQL type: double precision
+
+    @Column(name = "yellow_cards")
+    private Double crdY; // SQL type: double precision
+
+    @Column(name = "red_cards")
+    private Double crdR; // SQL type: double precision
+
+    @Column(name = "expected_goals")
+    private Double xG; // SQL type: double precision
+
+    @Column(name = "expected_assists")
+    private Double xAG; // SQL type: double precision
+
+    @Column(name = "team_name")
+    private String team; // SQL type: character varying
+
+    // Constructors
     public Player() {
     }
 
-    public Player(String player, String nation, String pos, Integer age, Integer mp, Integer starts, Double min, Double gls, Double ast, Double pk, Double crdY, Double crdR, Double xG, String team, Double xAG) {
+    public Player(String player, String nation, String pos, Integer age, Integer mp, Integer starts, Double min, Double gls, Double ast, Double pk, Double crdY, Double crdR, Double xG, Double xAG, String team) {
         this.player = player;
         this.nation = nation;
         this.pos = pos;
@@ -44,10 +72,11 @@ public class Player {
         this.crdY = crdY;
         this.crdR = crdR;
         this.xG = xG;
+        this.xAG = xAG; // Corrected order based on typical field sequence
         this.team = team;
-        this.xAG = xAG;
     }
 
+    // Getters and Setters
     public String getPlayer() {
         return player;
     }
@@ -104,6 +133,14 @@ public class Player {
         this.min = min;
     }
 
+    public Double getGls() {
+        return gls;
+    }
+
+    public void setGls(Double gls) {
+        this.gls = gls;
+    }
+
     public Double getAst() {
         return ast;
     }
@@ -112,12 +149,28 @@ public class Player {
         this.ast = ast;
     }
 
+    public Double getPk() {
+        return pk;
+    }
+
+    public void setPk(Double pk) {
+        this.pk = pk;
+    }
+
     public Double getCrdY() {
         return crdY;
     }
 
     public void setCrdY(Double crdY) {
         this.crdY = crdY;
+    }
+
+    public Double getCrdR() {
+        return crdR;
+    }
+
+    public void setCrdR(Double crdR) {
+        this.crdR = crdR;
     }
 
     public Double getxG() {
@@ -134,30 +187,6 @@ public class Player {
 
     public void setxAG(Double xAG) {
         this.xAG = xAG;
-    }
-
-    public Double getGls() {
-        return gls;
-    }
-
-    public void setGls(Double gls) {
-        this.gls = gls;
-    }
-
-    public Double getPk() {
-        return pk;
-    }
-
-    public void setPk(Double pk) {
-        this.pk = pk;
-    }
-
-    public Double getCrdR() {
-        return crdR;
-    }
-
-    public void setCrdR(Double crdR) {
-        this.crdR = crdR;
     }
 
     public String getTeam() {
