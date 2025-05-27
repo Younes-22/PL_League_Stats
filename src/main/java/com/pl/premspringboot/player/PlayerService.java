@@ -25,17 +25,17 @@ public class PlayerService {
 
     public List<Player> getPlayersByTeam(String teamName){
         return playerRepository.findAll().stream()
-                .filter(player -> teamName.equals(player.getTeam()))
+                .filter(player -> teamName.equals(player.getTeamName()))
                 .collect(Collectors.toList());
     }
     public List<Player> getPlayerByName(String searchText){
         return playerRepository.findAll().stream()
-                .filter(player -> player.getPlayer().toLowerCase().contains(searchText.toLowerCase()))
+                .filter(player -> player.getPlayerName().toLowerCase().contains(searchText.toLowerCase()))
                 .collect(Collectors.toList());
     }
     public List<Player> getPlayerByPosition(String searchText){
         return playerRepository.findAll().stream()
-                .filter(player -> player.getPos().toLowerCase().contains(searchText.toLowerCase()))
+                .filter(player -> player.getPosition().toLowerCase().contains(searchText.toLowerCase()))
                 .collect(Collectors.toList());
     }
     public List<Player> getPlayerByNation(String searchText){
@@ -45,7 +45,7 @@ public class PlayerService {
     }
     public List<Player> getPlayerByTeamAndPosition(String teamName, String position){
         return playerRepository.findAll().stream()
-                .filter(player -> teamName.equals(player.getTeam()) && position.equals(player.getPos()))
+                .filter(player -> teamName.equals(player.getTeamName()) && position.equals(player.getPosition()))
                 .collect(Collectors.toList());
     }
 
@@ -55,14 +55,14 @@ public class PlayerService {
     }
 
     public Player updatePlayer(Player updatedPlayer){
-        Optional<Player> existingPlayer = playerRepository.findByPlayer(updatedPlayer.getPlayer());
+        Optional<Player> existingPlayer = playerRepository.findByPlayerName(updatedPlayer.getPlayerName());
 
         if(existingPlayer.isPresent()){
             Player playerToUpdate = existingPlayer.get();
-            playerToUpdate.setPlayer(updatedPlayer.getPlayer());
+            playerToUpdate.setPlayerName(updatedPlayer.getPlayerName());
             playerToUpdate.setNation(updatedPlayer.getNation());
-            playerToUpdate.setTeam(updatedPlayer.getTeam());
-            playerToUpdate.setPos(updatedPlayer.getPos());
+            playerToUpdate.setTeamName(updatedPlayer.getTeamName());
+            playerToUpdate.setPosition(updatedPlayer.getPosition());
             playerToUpdate.setNation(updatedPlayer.getNation());
 
             playerRepository.save(playerToUpdate);
@@ -72,6 +72,6 @@ public class PlayerService {
     }
     @Transactional
     public void removePlayer(String playerName){
-        playerRepository.deleteByPlayer(playerName);
+        playerRepository.deleteByPlayerName(playerName);
     }
 }
