@@ -1,6 +1,6 @@
 package com.pl.premspringboot.player;
 
-//controller handles http requests, delegates them to the service layer then returns the appropriate response
+// controller handles http requests, delegates them to the service layer then returns the appropriate response
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
